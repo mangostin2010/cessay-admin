@@ -39,14 +39,12 @@ elif st.session_state.download == True:
     file_stream = io.BytesIO(file.read())
     st.success('Successfully Loaded')
     
-    col1, col2 = st.columns(2)
-    with col1:
-        st.download_button(label=f"**Download :blue[{st.session_state.target}]**",
-                        data=file_stream,
-                        file_name=st.session_state.target,
-                        mime='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
-    with col2:
-        st.button(':red[Delete This Essay]')
+
+    st.download_button(label=f"**Download :blue[{st.session_state.target}]**",
+                    data=file_stream,
+                    file_name=st.session_state.target,
+                    mime='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+
     if st.button('Go Back to Main Page'):
         st.session_state.download = False
         st.rerun()
