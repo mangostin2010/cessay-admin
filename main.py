@@ -53,11 +53,11 @@ elif st.session_state.download == True:
     with col2:
         with st.popover("**:red[Delete This Essay]**"):
             agree = st.checkbox(':red[I understand this essay cannot be restored after being deleted.]')
-            if agree == False: st.session_state.understand = False
-            elif agree == True: st.session_state.understand = True
+            if agree == False: st.session_state.understand = True
+            elif agree == True: st.session_state.understand = False
                 
             st.session_state.understand
-            
-            if agree == True:
-                if st.button('**:red[Delete]**', disabled=st.session_state.understand):
-                    db.delete(st.session_state.target)
+
+            if st.button('**:red[Delete]**', disabled=st.session_state.understand):
+                db.delete(st.session_state.target)
+
