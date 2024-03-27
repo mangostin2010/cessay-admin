@@ -56,8 +56,5 @@ elif st.session_state.download == True:
             if agree == False: st.session_state.understand = True
             elif agree == True: st.session_state.understand = False
                 
-            st.session_state.understand
-
             if st.button('**:red[Delete]**', disabled=st.session_state.understand):
                 db.delete(st.session_state.target)
-
