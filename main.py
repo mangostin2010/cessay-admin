@@ -1,3 +1,4 @@
+from streamlit_js_eval import streamlit_js_eval
 from deta import Deta
 import streamlit as st
 import io
@@ -58,3 +59,4 @@ elif st.session_state.download == True:
                 
             if st.button('**:red[Delete]**', disabled=st.session_state.understand):
                 db.delete(st.session_state.target)
+                streamlit_js_eval(js_expressions="parent.window.location.reload()")
