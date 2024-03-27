@@ -46,7 +46,7 @@ elif st.session_state.download == True:
                         file_name=st.session_state.target,
                         mime='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
     with col2:
-        st.button(':red[Delete This Essay'])
+        st.button(':red[Delete This Essay]')
     if st.button('Go Back to Main Page'):
         st.session_state.download = False
         st.rerun()
