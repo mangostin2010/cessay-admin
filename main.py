@@ -55,7 +55,7 @@ elif st.session_state.download == True:
             agree = st.checkbox(':red[I understand this essay cannot be restored after being deleted.]')
             if agree == False: st.session_state.understand = False
             elif agree == True: st.session_state.understand = True
-            if agree: st.rerun()
+                
             st.session_state.understand
             if st.button('**:red[Delete]**', disabled=st.session_state.understand):
                 if agree == True:
