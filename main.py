@@ -37,13 +37,10 @@ if st.session_state.download == False:
             st.session_state.target = x
             st.session_state.download = True
             st.rerun()
-                    
 
 elif st.session_state.download == True:
     file = db.get(st.session_state.target)
     file_stream = io.BytesIO(file.read())
-    st.success('Successfully Loaded')
-    
 
     st.download_button(label=f"**Download :blue[{st.session_state.target}]**",
                     data=file_stream,
