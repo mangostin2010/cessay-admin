@@ -15,6 +15,14 @@ if 'db' not in st.session_state:
     st.session_state.db = db
 db = st.session_state.db
 
+if 'response_list' not in st.session_state:
+    response = db.list()["names"]
+    st.session_state.response_list = response.reverse()
+response = st.session_state.response_list
+
+
+
+
 if 'download' not in st.session_state:
     st.session_state.download = False
 
@@ -23,8 +31,6 @@ st.title('Check Student\'s Essay')
 st.divider()
 
 if st.session_state.download == False:
-    response = db.list()["names"]
-    response.reverse()
     for x in response:
         if st.button(x, use_container_width=1):
             st.session_state.target = x
