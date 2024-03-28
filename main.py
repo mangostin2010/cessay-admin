@@ -8,6 +8,13 @@ st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 with open('style.css', encoding='UTF-8') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
+if 'db' not in st.session_state:
+    DETA_KEY = 'c0ki5D3avML_gSssDuj33rfuzLDrjwL1gc42oQkbgsHj'
+    deta = Deta(DETA_KEY)
+    db = deta.Drive("Write_Your_Essay")
+    st.session_state.db = db
+db = st.session_state.db
+
 if 'download' not in st.session_state:
     st.session_state.download = False
 
@@ -16,10 +23,6 @@ st.title('Check Student\'s Essay')
 st.divider()
 
 if st.session_state.download == False:
-    DETA_KEY = 'c0ki5D3avML_gSssDuj33rfuzLDrjwL1gc42oQkbgsHj'
-    deta = Deta(DETA_KEY)
-    db = deta.Drive("Write_Your_Essay")
-
     response = db.list()["names"]
     response.reverse()
     for x in response:
@@ -30,10 +33,6 @@ if st.session_state.download == False:
                     
 
 elif st.session_state.download == True:
-    DETA_KEY = 'c0ki5D3avML_gSssDuj33rfuzLDrjwL1gc42oQkbgsHj'
-    deta = Deta(DETA_KEY)
-    db = deta.Drive("Write_Your_Essay")
-
     response = db.list()["names"]
 
     file = db.get(st.session_state.target)
