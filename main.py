@@ -40,8 +40,6 @@ if st.session_state.download == False:
                     
 
 elif st.session_state.download == True:
-    response = db.list()["names"]
-
     file = db.get(st.session_state.target)
     file_stream = io.BytesIO(file.read())
     st.success('Successfully Loaded')
