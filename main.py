@@ -47,7 +47,10 @@ elif st.session_state.download == True:
                     file_name=st.session_state.target,
                     mime='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
 
-    st.button('Preview this essay')
+    preview = st.button('Preview this essay')
+
+    if preview:
+        st.warning('⚠️ This process is still in developing.')
     
     with st.popover("**:red[Delete This Essay]**"):
         agree = st.checkbox(':red[I understand this essay cannot be restored after being deleted.]')
