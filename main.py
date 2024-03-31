@@ -1,4 +1,5 @@
 from streamlit_js_eval import streamlit_js_eval
+import docx
 from deta import Deta
 import streamlit as st
 import io
