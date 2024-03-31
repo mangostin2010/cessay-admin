@@ -54,12 +54,20 @@ elif st.session_state.download == True:
             for para in doc.paragraphs:
                 fullText.append(para.text)
             return '\n'.join(fullText)
-            
+
+        # Preview Expander
         file_content = getText(file_stream)
         file_name = st.session_state.target.replace('.docx','')
         divided_file_name = file_name.split('_')
-        divided_file_name
+
+        # Preview Datas
+        date = divided_file_name[0]
+        name = divided_file_name[1]
+        topic = divided_file_name[2]
         
+        file_content
+        #file_content.replace(f"")
+    
     
     with st.popover("**:red[Delete This Essay]**"):
         agree = st.checkbox(':red[I understand this essay cannot be restored after being deleted.]')
