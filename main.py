@@ -65,9 +65,9 @@ elif st.session_state.download == True:
         name = divided_file_name[1]
         topic = divided_file_name[2]
         
-        file_content
         remove_target = f"{topic} {name}, {date}"
-    
+        file_content = file_content.replace(remove_target, '')
+        st.write(file_content)
     
     with st.popover("**:red[Delete This Essay]**"):
         agree = st.checkbox(':red[I understand this essay cannot be restored after being deleted.]')
