@@ -66,7 +66,6 @@ elif st.session_state.download == True:
         topic = divided_file_name[2]
 
         f'''#### {topic}'''
-        f'''**{name}, {date}**'''
         
         # Write Content
         st.write(file_content.replace(date, '', 1).replace(name, '', 1).replace(',','',1).replace(topic, '', 1))
