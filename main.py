@@ -20,12 +20,8 @@ if 'response_list' not in st.session_state:
     response = db.list()["names"]
     st.session_state.response_list = response
 
-
-
-
 if 'download' not in st.session_state:
     st.session_state.download = False
-
 
 st.title('Check Student\'s Essay')
 st.divider()
