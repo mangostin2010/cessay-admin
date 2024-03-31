@@ -50,10 +50,10 @@ elif st.session_state.download == True:
         # st.warning('⚠️ This process is still in developing.')
         def getText(filename):
             doc = docx.Document(filename)
-            fulltext = []
+            fullText = []
             for para in doc.paragraphs:
                 fullText.append(para.text)
-            return '\n'.join(fulltext)
+            return '\n'.join(fullText)
         getText(file_stream)
     
     with st.popover("**:red[Delete This Essay]**"):
