@@ -48,15 +48,16 @@ elif st.session_state.download == True:
 
     with preview:
         # st.warning('⚠️ This process is still in developing.')
-        def getText(filename):
-            doc = docx.Document(filename)
+        def getText(file_stream):
+            doc = docx.Document(file_stream)
             fullText = []
             for para in doc.paragraphs:
                 fullText.append(para.text)
             return '\n'.join(fullText)
+            
         file_content = getText(file_stream)
         file_content = file_content.replace('.docx','')
-        st.session_state.target = file_name
+        file_name = st.session_state.target
         divided_file_name = file_name.split('_')
         divided_file_name
         
