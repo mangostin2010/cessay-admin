@@ -65,8 +65,7 @@ elif st.session_state.download == True:
         name = divided_file_name[1]
         topic = divided_file_name[2]
 
-        f'##### {topic}'
-        '---'
+        f'#### {topic}'
         f'**{name}, {date}**'
         
         # Write Content
