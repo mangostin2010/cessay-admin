@@ -50,7 +50,7 @@ elif st.session_state.download == True:
     col1, col2 = st.columns(2)
 
     
-    with col1.popover("**:red[Delete This Essay]**", use_container_width=1):
+    with col1.popover("**:red[Delete This Essay]**", use_container_width=5):
         agree = st.checkbox(':red[I understand this essay cannot be restored after being deleted.]')
         if agree == False: st.session_state.understand = True
         elif agree == True: st.session_state.understand = False
