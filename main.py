@@ -56,8 +56,7 @@ elif st.session_state.download == True:
             return '\n'.join(fullText)
             
         file_content = getText(file_stream)
-        file_content = file_content.replace('.docx','')
-        file_name = st.session_state.target
+        file_name = st.session_state.target.replace('.docx','')
         divided_file_name = file_name.split('_')
         divided_file_name
         
