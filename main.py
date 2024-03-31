@@ -46,7 +46,7 @@ elif st.session_state.download == True:
 
     preview = st.expander('Preview this essay')
 
-    if preview:
+    with preview:
         # st.warning('⚠️ This process is still in developing.')
         def getText(filename):
             doc = docx.Document(filename)
