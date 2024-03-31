@@ -44,7 +44,7 @@ elif st.session_state.download == True:
                     file_name=st.session_state.target,
                     mime='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
 
-    preview = st.button('Preview this essay')
+    preview = st.expander('Preview this essay')
 
     if preview:
         # st.warning('⚠️ This process is still in developing.')
