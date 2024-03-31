@@ -66,6 +66,7 @@ elif st.session_state.download == True:
         topic = divided_file_name[2]
         
         remove_target = f"{topic} {name}, {date}"
+        remove_target
         file_content = file_content.replace(remove_target, '')
         st.write(file_content)
     
