@@ -66,7 +66,8 @@ elif st.session_state.download == True:
         topic = divided_file_name[2]
         
         remove_target = f"{topic} {name}, {date}"
-        remove_target
+        remove_target = str(remove_target)
+        file_content = str(file_content)
         st.write(file_content.replace(remove_target, ''))
     
     with st.popover("**:red[Delete This Essay]**"):
