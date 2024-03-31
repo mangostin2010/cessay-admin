@@ -46,11 +46,10 @@ elif st.session_state.download == True:
                     data=file_stream,
                     file_name=st.session_state.target,
                     mime='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
-    
-    col1, col2 = st.columns(2)
 
+    st.button('Preview this essay')
     
-    with col1.popover("**:red[Delete This Essay]**", use_container_width=5):
+    with st.popover("**:red[Delete This Essay]**"):
         agree = st.checkbox(':red[I understand this essay cannot be restored after being deleted.]')
         if agree == False: st.session_state.understand = True
         elif agree == True: st.session_state.understand = False
@@ -58,8 +57,6 @@ elif st.session_state.download == True:
         if st.button('**:red[Delete]**', disabled=st.session_state.understand):
             db.delete(st.session_state.target)
             streamlit_js_eval(js_expressions="parent.window.location.reload()")
-
-    col2.button('Preview this essay')
     
     if st.button('Go Back to Main Page'):
         st.session_state.download = False
