@@ -50,8 +50,14 @@ elif st.session_state.download == True:
     preview = st.button('Preview this essay')
 
     if preview:
-        
-        st.warning('⚠️ This process is still in developing.')
+        # st.warning('⚠️ This process is still in developing.')
+        def getText(filename):
+            doc = docx.Document(filename)
+            fulltext = []
+            for para in doc.paragraphs:
+                fullText.append(para.text)
+            return '\n'.join(fulltext)
+        getText(file_stream)
     
     with st.popover("**:red[Delete This Essay]**"):
         agree = st.checkbox(':red[I understand this essay cannot be restored after being deleted.]')
