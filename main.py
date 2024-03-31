@@ -50,6 +50,7 @@ elif st.session_state.download == True:
     preview = st.button('Preview this essay')
 
     if preview:
+        
         st.warning('⚠️ This process is still in developing.')
     
     with st.popover("**:red[Delete This Essay]**"):
