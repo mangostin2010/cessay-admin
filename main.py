@@ -6,8 +6,8 @@ import io
 
 st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 
-st.toast(''':rainbow[Preview Update!]  
-You can now see the essay without downloading the file!''', icon='🎉')
+#st.toast(''':rainbow[Preview Update!]  
+#You can now see the essay without downloading the file!''', icon='🎉')
 
 with open('style.css', encoding='UTF-8') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
