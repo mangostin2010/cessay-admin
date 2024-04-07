@@ -37,7 +37,3 @@ h5 {
     max-width: calc(-2.5rem + 100vw);
   }
 }
-
-button {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
-}
