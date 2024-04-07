@@ -6,9 +6,6 @@ import io
 
 st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 
-#st.toast(''':rainbow[Preview Update!]  
-#You can now see the essay without downloading the file!''', icon='🎉')
-
 with open('style.css', encoding='UTF-8') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
@@ -30,6 +27,14 @@ st.title('Check Student\'s Essay')
 st.divider()
 
 if st.session_state.download == False:
+    code = """
+    <style>
+    button {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+    }
+    </style>
+    """
+    st.html(code)
     response = st.session_state.response_list
     response.reverse()
     for x in response:
@@ -39,6 +44,15 @@ if st.session_state.download == False:
             st.rerun()
 
 elif st.session_state.download == True:
+    code = """
+    <style>
+    button {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    }
+    </style>
+    """
+    st.html(code)
+    
     file = db.get(st.session_state.target)
     file_stream = io.BytesIO(file.read())
 
