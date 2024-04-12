@@ -30,7 +30,7 @@ if st.session_state.download == False:
     code = """
     <style>
     button {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     </style>
     """
