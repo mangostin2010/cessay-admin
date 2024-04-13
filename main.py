@@ -26,8 +26,6 @@ if 'download' not in st.session_state:
 st.title('Check Student\'s Essay')
 st.divider()
 
-st.button('This is a Test Button(Justin is developing)', use_container_width=1)
-st.divider()
 if st.session_state.download == False:
     code = """
     <style>
