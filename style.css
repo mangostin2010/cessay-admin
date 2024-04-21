@@ -37,3 +37,9 @@ h5 {
     max-width: calc(-2.5rem + 100vw);
   }
 }
+
+button {transition: box-shadow .15s,transform .15s;}
+button:hover {
+    transform: translateY(-10px);
+    background: #eaeaea;
+}
