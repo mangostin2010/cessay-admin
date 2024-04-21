@@ -40,6 +40,6 @@ h5 {
 
 button {transition: box-shadow .15s,transform .15s;}
 button:hover {
-    transform: translateY(-10px);
+    transform: translateY(-2px);
     background: #eaeaea;
 }
