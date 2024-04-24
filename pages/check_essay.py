@@ -72,6 +72,4 @@ with st.popover("**:red[Delete This Essay]**"):
         db.delete(st.session_state.target)
         streamlit_js_eval(js_expressions="parent.window.location.reload()")
 
-if st.button('Go Back to Main Page'):
-    st.session_state.download = False
-    switch_page('main')
+st.link_button('Go Back to Main Page', url="https://check-cessay.streamlit.app/")
