@@ -17,7 +17,7 @@ if 'db' not in st.session_state:
     st.session_state.db = db
 
 if 'response_list' not in st.session_state:
-    response = db.list()["names"]
+    response = st.session_state.db.list()["names"]
     response.reverse()
     st.session_state.response_list = response
 
