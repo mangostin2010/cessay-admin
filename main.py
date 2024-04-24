@@ -1,4 +1,4 @@
-from streamlit_js_eval import streamlit_js_eval
+from streamlit_javascript import st_javascript
 import docx
 from deta import Deta
 import streamlit as st
@@ -41,5 +41,6 @@ st.html(code)
 
 for x in st.session_state.response_list:
     if st.button(label=x.replace('.docx', ''), use_container_width=1):
-        streamlit_js_eval(js_expressions='location.href = "http://example.com";')
+        #streamlit_js_eval(js_expressions='location.href = "http://example.com";')
+        st_javascript('location.href = "http://example.com";')
     #st.link_button(label=x.replace('.docx', ''), use_container_width=1, url=f"https://check-cessay.streamlit.app/check_essay?target={x}")
