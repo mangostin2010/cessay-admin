@@ -4,6 +4,7 @@ from deta import Deta
 import streamlit as st
 import io
 from streamlit_extras.switch_page_button import switch_page
+import random
 
 st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 
@@ -39,7 +40,7 @@ if st.session_state.download == False:
     st.html(code)
 
     for x in st.session_state.response_list:
-        if st.link_button(x.replace('.docx', ''), use_container_width=1, url=f"https://check-cessay.streamlit.app/check_essay?target={x}"):
+        if st.link_button(label=x.replace('.docx', ''), use_container_width=1, url=f"https://check-cessay.streamlit.app/check_essay?target={x}", key=random.randint(1,1000000000):
             st.session_state.target = x
             st.rerun()
 
