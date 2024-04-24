@@ -39,7 +39,7 @@ if st.session_state.download == False:
     st.html(code)
 
     for x in st.session_state.response_list:
-        if st.button(x.replace('.docx', ''), use_container_width=1):
+        if st.link_button(x.replace('.docx', ''), use_container_width=1, url=f"https://check-cessay.streamlit.app/check_essay?target={x}"):
             st.session_state.target = x
             st.link_button("Go to gallery", f"https://check-cessay.streamlit.app/check_essay?target={x}")
             st.rerun()
