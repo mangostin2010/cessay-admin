@@ -16,6 +16,7 @@ if 'target' not in st.query_params:
         switch_page('main')
     st.stop()
 
+st.query_params.target
 st.session_state.target = st.query_params["target"]
 
 if 'db' not in st.session_state:
