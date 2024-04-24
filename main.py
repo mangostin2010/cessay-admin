@@ -40,6 +40,4 @@ button {
 st.html(code)
 
 for x in st.session_state.response_list:
-    if st.link_button(label=x.replace('.docx', ''), use_container_width=1, url=f"https://check-cessay.streamlit.app/check_essay?target={x}"):
-        st.session_state.target = x
-        st.rerun()
+    st.link_button(label=x.replace('.docx', ''), use_container_width=1, url=f"https://check-cessay.streamlit.app/check_essay?target={x}")
