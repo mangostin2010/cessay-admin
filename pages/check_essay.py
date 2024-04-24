@@ -1,4 +1,4 @@
-from streamlit_js_eval import streamlit_js_eval
+n cfrom streamlit_js_eval import streamlit_js_eval
 import docx
 from deta import Deta
 import streamlit as st
@@ -15,6 +15,8 @@ if 'target' not in st.query_params:
     if st.button('Go Back', type='primary'):
         switch_page('main')
     st.stop()
+
+st.session_state.target = st.query_params["target"]
 
 if 'db' not in st.session_state:
     DETA_KEY = 'c0ki5D3avML_gSssDuj33rfuzLDrjwL1gc42oQkbgsHj'
