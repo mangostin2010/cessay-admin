@@ -29,20 +29,17 @@ st.divider()
 
 st.session_state.response_list
 
-if st.session_state.download == False:
-    code = """
-    <style>
-    button {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    </style>
-    """
-    st.html(code)
 
-    for x in st.session_state.response_list:
-        if st.link_button(label=x.replace('.docx', ''), use_container_width=1, url=f"https://check-cessay.streamlit.app/check_essay?target={x}"):
-            st.session_state.target = x
-            st.rerun()
+code = """
+<style>
+button {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+</style>
+"""
+st.html(code)
 
-elif st.session_state.download == True:
-    switch_page('check_essay')
+for x in st.session_state.response_list:
+    if st.link_button(label=x.replace('.docx', ''), use_container_width=1, url=f"https://check-cessay.streamlit.app/check_essay?target={x}"):
+        st.session_state.target = x
+        st.rerun()
