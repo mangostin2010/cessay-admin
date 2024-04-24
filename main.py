@@ -40,7 +40,7 @@ if st.session_state.download == False:
     st.html(code)
 
     for x in st.session_state.response_list:
-        if st.link_button(label=x.replace('.docx', ''), use_container_width=1, url=f"https://check-cessay.streamlit.app/check_essay?target={x}", key=random.randint(1,1000000000):
+        if st.link_button(label=x.replace('.docx', ''), use_container_width=1, url=f"https://check-cessay.streamlit.app/check_essay?target={x}", key=random.randint(1,1000)):
             st.session_state.target = x
             st.rerun()
 
