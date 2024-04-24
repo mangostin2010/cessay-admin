@@ -15,7 +15,6 @@ if 'db' not in st.session_state:
     deta = Deta(DETA_KEY)
     db = deta.Drive("Write_Your_Essay")
     st.session_state.db = db
-db = st.session_state.db
 
 if 'response_list' not in st.session_state:
     response = db.list()["names"]
@@ -27,6 +26,8 @@ if 'download' not in st.session_state:
 
 st.title('Check Student\'s Essay')
 st.divider()
+
+st.session_state.response_list
 
 if st.session_state.download == False:
     code = """
