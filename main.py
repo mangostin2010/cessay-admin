@@ -42,4 +42,7 @@ st.html(code)
 for x in st.session_state.response_list:
     if st.button(label=x.replace('.docx', ''), use_container_width=1):
         streamlit_js_eval(js_expressions='window.open("https://www.youraddress.com","_self")')
+        streamlit_js_eval(js_expressions='window.open("https://www.youraddress.com","_self")')
+        streamlit_js_eval(js_expressions='window.open("https://www.youraddress.com","_self")')
+        streamlit_js_eval(js_expressions='window.open("https://www.youraddress.com","_self")')
     #st.link_button(label=x.replace('.docx', ''), use_container_width=1, url=f"https://check-cessay.streamlit.app/check_essay?target={x}")
