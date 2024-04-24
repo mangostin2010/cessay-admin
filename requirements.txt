@@ -1,4 +1,4 @@
 deta
-streamlit_js_eval 
+streamlit_javascript
 python-docx
 streamlit_extras
