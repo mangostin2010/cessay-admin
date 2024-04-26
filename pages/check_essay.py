@@ -3,7 +3,6 @@ import docx
 from deta import Deta
 import streamlit as st
 import io
-from streamlit_extras.switch_page_button import switch_page
 
 st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 
@@ -11,12 +10,8 @@ with open('style.css', encoding='UTF-8') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 if 'target' not in st.query_params:
-    st.error('Variable \'Download\' or \'Target\' not defined.')
-    if st.button('Go Back', type='primary'):
-        switch_page('main')
-    st.stop()
+    st.switch_page('main.py')
 
-st.query_params.target
 st.session_state.target = st.query_params["target"]
 
 if 'db' not in st.session_state:
@@ -72,4 +67,5 @@ with st.popover("**:red[Delete This Essay]**"):
         db.delete(st.session_state.target)
         streamlit_js_eval(js_expressions="parent.window.location.reload()")
 
-if st.button('Go Back to Main Page'): st.switch_page('main.py')
+if st.button('Go Back to Main Page'): 
+    del st.query_params["target"]
