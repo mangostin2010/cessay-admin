@@ -1,9 +1,5 @@
-import docx
 from deta import Deta
 import streamlit as st
-import io
-from streamlit_extras.switch_page_button import switch_page
-import time as t
 
 st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 
@@ -21,14 +17,8 @@ if 'response_list' not in st.session_state:
     response.reverse()
     st.session_state.response_list = response
 
-if 'download' not in st.session_state:
-    st.session_state.download = False
-
 st.title('Check Student\'s Essay')
 st.divider()
-
-st.session_state.response_list
-
 
 code = """
 <style>
@@ -41,12 +31,6 @@ st.html(code)
 
 for x in st.session_state.response_list:
     if st.button(label=x.replace('.docx', ''), use_container_width=1):
-        #streamlit_js_eval(js_expressions='location.href = "http://example.com";')
-        #st_javascript('location.href = "http://example.com";')
-        code = """
-        <script>
-            location.href = "http://example.com";
-        </script>
-        """
-        st.html(code)
-        st.markdown('<a href="http://example.com" target="_self">View all</a>',unsafe_allow_html=True)
+        del st.session_state["db"], st.session_state["response_list"]
+        st.query_params["target"] = x
+        st.switch_page('pages/check_essay.py')
