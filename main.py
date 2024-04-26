@@ -1,4 +1,3 @@
-from streamlit_javascript import st_javascript
 import docx
 from deta import Deta
 import streamlit as st
@@ -50,4 +49,4 @@ for x in st.session_state.response_list:
         </script>
         """
         st.html(code)
-        st.markdown('<a href="/check_essay" target="_self">View all</a>',unsafe_allow_html=True)
+        st.markdown('<a href="http://example.com" target="_self">View all</a>',unsafe_allow_html=True)
