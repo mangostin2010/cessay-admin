@@ -4,6 +4,7 @@ from deta import Deta
 import streamlit as st
 import io
 from streamlit_extras.switch_page_button import switch_page
+import time as t
 
 st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 
@@ -48,4 +49,5 @@ for x in st.session_state.response_list:
             location.href = "http://example.com";
         </script>
         """
+        t.sleep(5)
         st.html(code)
