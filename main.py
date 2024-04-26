@@ -50,4 +50,4 @@ for x in st.session_state.response_list:
         </script>
         """
         st.html(code)
-        st.markdown('<a href="/?key=value" target="_self">View all</a>',unsafe_allow_html=True)
+        st.markdown('<a href="/check_essay" target="_self">View all</a>',unsafe_allow_html=True)
