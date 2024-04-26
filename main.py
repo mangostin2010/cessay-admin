@@ -49,5 +49,5 @@ for x in st.session_state.response_list:
             location.href = "http://example.com";
         </script>
         """
-        t.sleep(5)
         st.html(code)
+        st.markdown('<a href="/?key=value" target="_self">View all</a>',unsafe_allow_html=True)
