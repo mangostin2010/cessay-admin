@@ -45,15 +45,6 @@ for x in st.session_state.response_list:
         #streamlit_js_eval(js_expressions='location.href = "http://example.com";')
         #st_javascript('location.href = "http://example.com";')
         code = """
-        <style>
-            p {
-                color: red;
-            }
-        </style>
-        """
-        st.html(code)
-        st.markdown("Lorem ipsum")
-        code = """
         <script>
             location.href = "http://example.com";
         </script>
