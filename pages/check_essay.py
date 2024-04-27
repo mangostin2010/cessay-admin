@@ -70,11 +70,7 @@ with st.popover("**:red[Delete This Essay]**"):
 
 if st.button('Go Back to Main Page'): 
     st.rerun()
-    #st.switch_page("main.py")
 
 for key in st.session_state.keys():
     del st.session_state[key]
 del st.query_params["target"]
-
-time.sleep(1)
-st.rerun()
