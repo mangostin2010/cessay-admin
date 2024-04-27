@@ -68,10 +68,10 @@ with st.popover("**:red[Delete This Essay]**"):
         streamlit_js_eval(js_expressions="parent.window.location.reload()")
 
 if st.button('Go Back to Main Page'): 
-    st.switch_page("main.py")
+    st.rerun()
+    #st.switch_page("main.py")
 
 for key in st.session_state.keys():
     del st.session_state[key]
 del st.query_params["target"]
-st.session_state
-st.query_params
+
