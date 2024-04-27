@@ -73,3 +73,6 @@ with st.popover("**:red[Delete This Essay]**"):
 
 if st.button('Go Back to Main Page'): 
     st.switch_page('main.py')
+
+st.session_state
+st.query_params
