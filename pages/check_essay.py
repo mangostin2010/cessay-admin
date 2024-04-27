@@ -80,4 +80,4 @@ for key in st.session_state:
     del st.session_state[key]
 st.query_params.clear()
 st.session_state
-st.query_params
+streamlit_js_eval(js_expressions="history.back();")
