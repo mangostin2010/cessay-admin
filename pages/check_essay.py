@@ -10,10 +10,10 @@ st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 with open('style.css', encoding='UTF-8') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-if 'target' not in st.query_params:
-    st.switch_page('main.py')
-else:
-    st.query_params.target = st.query_params['target']
+#if 'target' not in st.query_params:
+#    st.switch_page('main.py')
+#else:
+#    st.query_params.target = st.query_params['target']
 st.session_state.target = st.query_params["target"]
 
 if 'db' not in st.session_state:
