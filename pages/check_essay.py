@@ -70,4 +70,4 @@ with st.popover("**:red[Delete This Essay]**"):
         streamlit_js_eval(js_expressions="parent.window.location.reload()")
 
 if st.button('Go Back to Main Page'): 
-    st.rerun()
+    st.switch_page('main.py')
