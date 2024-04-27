@@ -69,5 +69,8 @@ with st.popover("**:red[Delete This Essay]**"):
 
 if st.button('Go Back to Main Page'): 
     del st.query_params["target"]
+
+
+for key in st.session_state.keys():
+    del st.session_state[key]
 st.session_state
-st.query_params
