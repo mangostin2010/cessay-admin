@@ -12,7 +12,8 @@ with open('style.css', encoding='UTF-8') as f:
 
 if 'target' not in st.query_params:
     st.switch_page('main.py')
-
+else:
+    st.query_params.target = st.query_params['target']
 st.session_state.target = st.query_params["target"]
 
 if 'db' not in st.session_state:
