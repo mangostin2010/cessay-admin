@@ -75,8 +75,8 @@ if st.button('Go Back to Main Page'):
     st.switch_page('main.py')
 
 for key in st.session_state:
-    del st.session_state.key
+    del st.session_state[key]
 for key in st.query_params:
-    del st.query_params.key
+    del st.query_params[key]
 st.session_state
 st.query_params
