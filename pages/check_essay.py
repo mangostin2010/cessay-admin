@@ -28,13 +28,15 @@ db = st.session_state.db
 st.title('Check Student\'s Essay')
 st.divider()
 
-file = db.get(st.session_state.target)
-file_stream = io.BytesIO(file.read())
+if 'file_downloaded' not in st.session_state:
+    file = db.get(st.session_state.target)
+    file_stream = io.BytesIO(file.read())
 
-st.download_button(label=f"**Download :blue[{st.session_state.target}]**",
-                data=file_stream,
-                file_name=st.session_state.target,
-                mime='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+    st.download_button(label=f"**Download :blue[{st.session_state.target}]**",
+                    data=file_stream,
+                    file_name=st.session_state.target,
+                    mime='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+    st.session_state.file_downloaded = True
 
 preview = st.expander('Preview this essay')
 
