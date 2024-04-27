@@ -76,7 +76,6 @@ if st.button('Go Back to Main Page'):
 
 for key in st.session_state:
     del st.session_state[key]
-for key in st.query_params:
-    del st.query_params[key]
+st.query_params.clear()
 st.session_state
 st.query_params
