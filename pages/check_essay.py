@@ -3,6 +3,7 @@ import docx
 from deta import Deta
 import streamlit as st
 import io
+import time
 
 st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 
@@ -75,3 +76,5 @@ for key in st.session_state.keys():
     del st.session_state[key]
 del st.query_params["target"]
 
+time.sleep(1)
+st.rerun()
