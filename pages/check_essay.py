@@ -69,10 +69,7 @@ with st.popover("**:red[Delete This Essay]**"):
 
 if st.button('Go Back to Main Page'): 
     st.switch_page("main.py")
-code = """
-<button onclick="history.back()">Go Back</button>
-"""
-st.html(code)
+
 for key in st.session_state.keys():
     del st.session_state[key]
 del st.query_params["target"]
