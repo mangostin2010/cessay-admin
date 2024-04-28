@@ -6,6 +6,7 @@ import io
 import time
 import os
 from streamlit_cookies_manager import EncryptedCookieManager
+import ast
 
 st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 
@@ -21,7 +22,21 @@ if not cookies.ready():
     st.stop()
 
 st.write("Current cookies:", cookies)
-encrypted_cookie_manager.get('asdf')
+
+# Extract the dictionary part from the string
+start_index = cookies.find('{')
+end_index = cookies.rfind('}') + 1
+dict_string = cookies[start_index:end_index]
+
+# Convert the string representation of dictionary to an actual dictionary
+cookie_dict = ast.literal_eval(dict_string)
+
+# Get the value of the 'asdf' key
+asdf_value = cookie_dict.get('asdf')
+
+# Print the value
+asdf_value
+
 with open('style.css', encoding='UTF-8') as f:
     st.html(f'<style>{f.read()}</style>')
 
