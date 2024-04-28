@@ -35,11 +35,10 @@ def get_target_from_cookies(cookie_value):
     return asdf_value
 
 st.session_state.target = get_target_from_cookies(cookies)
+st.session_state.target
 
 with open('style.css', encoding='UTF-8') as f:
     st.html(f'<style>{f.read()}</style>')
-
-st.session_state.target = st.query_params["target"]
 
 if 'db' not in st.session_state:
     DETA_KEY = 'c0ki5D3avML_gSssDuj33rfuzLDrjwL1gc42oQkbgsHj'
