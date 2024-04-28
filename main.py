@@ -15,6 +15,8 @@ if not cookies.ready():
     # Wait for the component to load and send us current cookies.
     st.stop()
 
+cookies['a-cookie'] = value
+cookies.save()
 st.write("Current cookies:", cookies)
 
 with open('style.css', encoding='UTF-8') as f:
