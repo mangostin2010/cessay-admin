@@ -9,6 +9,7 @@ cookies = EncryptedCookieManager(
     # This prefix will get added to all your cookie names.
     # This way you can run your app on Streamlit Cloud without cookie name clashes with other apps.
     prefix="justin",
+    password=os.environ.get("COOKIES_PASSWORD", "justin is handsome"),
 )
 if not cookies.ready():
     # Wait for the component to load and send us current cookies.
