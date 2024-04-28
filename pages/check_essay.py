@@ -21,7 +21,7 @@ if not cookies.ready():
     st.stop()
 
 st.write("Current cookies:", cookies)
-
+encrypted_cookie_manager.get('asdf')
 with open('style.css', encoding='UTF-8') as f:
     st.html(f'<style>{f.read()}</style>')
 
