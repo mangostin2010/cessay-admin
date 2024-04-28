@@ -23,19 +23,18 @@ if not cookies.ready():
 
 st.write("Current cookies:", cookies)
 
-# Extract the dictionary part from the string
-start_index = str(cookies).find('{')
-end_index = str(cookies).rfind('}') + 1
-dict_string = str(cookies)[start_index:end_index]
+def get_target_from_cookies(cookie_value):
+    # Extract the dictionary part from the string
+    start_index = str(cookie_value).find('{')
+    end_index = str(cookie_value).rfind('}') + 1
+    dict_string = str(cookie_value)[start_index:end_index]
+    # Convert the string representation of dictionary to an actual dictionary
+    cookie_dict = ast.literal_eval(dict_string)
+    # Get the value of the 'asdf' key
+    asdf_value = cookie_dict.get('asdf')
+    return asdf_value
 
-# Convert the string representation of dictionary to an actual dictionary
-cookie_dict = ast.literal_eval(dict_string)
-
-# Get the value of the 'asdf' key
-asdf_value = cookie_dict.get('asdf')
-
-# Print the value
-asdf_value
+st.session_state.target = get_target_from_cookies(cookies)
 
 with open('style.css', encoding='UTF-8') as f:
     st.html(f'<style>{f.read()}</style>')
