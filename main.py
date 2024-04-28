@@ -51,7 +51,7 @@ for x in st.session_state.response_list:
         for key in st.session_state:
             del st.session_state[key]
         cookies['asdf'] = x
-        cookies.save():
+        cookies.save()
         st.write("Current cookies:", cookies)
         time.sleep(5)
         st.switch_page('pages/check_essay.py')
