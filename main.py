@@ -2,7 +2,6 @@ from deta import Deta
 import streamlit as st
 import os
 from streamlit_cookies_manager import EncryptedCookieManager
-import time
 
 st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 
@@ -53,5 +52,4 @@ for x in st.session_state.response_list:
         cookies['asdf'] = x
         cookies.save()
         st.write("Current cookies:", cookies)
-        time.sleep(5)
         st.switch_page('pages/check_essay.py')
