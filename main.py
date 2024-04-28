@@ -50,5 +50,6 @@ for x in st.session_state.response_list:
         for key in st.session_state:
             del st.session_state[key]
         cookies['target'] = x
-        cookies.save()
-        st.switch_page('pages/check_essay.py')
+        if st.button('really?'):
+            cookies.save()
+            st.switch_page('pages/check_essay.py')
