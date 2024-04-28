@@ -24,9 +24,9 @@ if not cookies.ready():
 st.write("Current cookies:", cookies)
 
 # Extract the dictionary part from the string
-start_index = cookies.find('{')
-end_index = cookies.rfind('}') + 1
-dict_string = cookies[start_index:end_index]
+start_index = str(cookies).find('{')
+end_index = str(cookies).rfind('}') + 1
+dict_string = str(cookies)[start_index:end_index]
 
 # Convert the string representation of dictionary to an actual dictionary
 cookie_dict = ast.literal_eval(dict_string)
