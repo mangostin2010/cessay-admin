@@ -34,5 +34,5 @@ st.html(code)
 for x in st.session_state.response_list:
     if st.button(label=x.replace('.docx', ''), use_container_width=1):
         del st.session_state["db"], st.session_state["response_list"]
-        st.query_params["target"] = x
+        st.session_state.target = x
         st.switch_page('pages/check_essay.py')
