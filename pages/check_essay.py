@@ -69,4 +69,5 @@ with st.popover("**:red[Delete This Essay]**"):
         streamlit_js_eval(js_expressions="parent.window.location.reload()")
 
 if st.button('Go Back to Main Page'): 
+    del st.session_state["file_downloaded"]
     st.switch_page('main.py')
