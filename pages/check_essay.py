@@ -4,6 +4,8 @@ from deta import Deta
 import streamlit as st
 import io
 import time
+import os
+from streamlit_cookies_manager import EncryptedCookieManager
 
 st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 
