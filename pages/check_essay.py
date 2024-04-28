@@ -23,8 +23,8 @@ st.title('Check Student\'s Essay')
 st.divider()
 
 if 'file_downloaded' not in st.session_state:
+    global file_stream, file
     file = db.get(st.session_state.target)
-    global file_stream
     file_stream = io.BytesIO(file.read())
     st.session_state.file_downloaded = True
 
