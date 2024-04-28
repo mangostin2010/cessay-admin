@@ -52,4 +52,5 @@ for x in st.session_state.response_list:
         cookies['asdf'] = x
         if st.button('really?'):
             cookies.save()
-            st.switch_page('pages/check_essay.py')
+            st.rerun()
+            #st.switch_page('pages/check_essay.py')
