@@ -14,10 +14,7 @@ with open('style.css', encoding='UTF-8') as f:
 #    st.switch_page('main.py')
 #else:
 #    st.query_params.target = st.query_params['target']
-try:
-    st.session_state.target = st.query_params["target"]
-except:
-    st.switch_page('main.py')
+
 if 'db' not in st.session_state:
     DETA_KEY = 'c0ki5D3avML_gSssDuj33rfuzLDrjwL1gc42oQkbgsHj'
     deta = Deta(DETA_KEY)
