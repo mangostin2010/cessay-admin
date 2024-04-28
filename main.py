@@ -52,4 +52,4 @@ for x in st.session_state.response_list:
         cookies['asdf'] = x
         cookies.save()
         st.write("Current cookies:", cookies)
-        #st.switch_page('pages/check_essay.py')
+        st.switch_page('pages/check_essay.py')
