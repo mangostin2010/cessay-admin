@@ -24,6 +24,7 @@ st.divider()
 
 if 'file_downloaded' not in st.session_state:
     file = db.get(st.session_state.target)
+    global file_stream
     file_stream = io.BytesIO(file.read())
     st.session_state.file_downloaded = True
 
