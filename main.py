@@ -15,7 +15,7 @@ if not cookies.ready():
     # Wait for the component to load and send us current cookies.
     st.stop()
 
-cookies['a-cookie'] = value
+cookies['a-cookie'] = 'dffsafdsafds'
 cookies.save()
 st.write("Current cookies:", cookies)
 
