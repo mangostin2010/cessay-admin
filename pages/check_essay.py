@@ -8,7 +8,7 @@ import time
 st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 
 with open('style.css', encoding='UTF-8') as f:
-    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    st.html(f'<style>{f.read()}</style>')
 
 st.session_state
 
