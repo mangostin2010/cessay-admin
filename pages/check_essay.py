@@ -10,7 +10,7 @@ st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 with open('style.css', encoding='UTF-8') as f:
     st.html(f'<style>{f.read()}</style>')
 
-st.query_params["target"]
+st.session_state.target = st.query_params["target"]
 
 if 'db' not in st.session_state:
     DETA_KEY = 'c0ki5D3avML_gSssDuj33rfuzLDrjwL1gc42oQkbgsHj'
