@@ -15,8 +15,6 @@ if not cookies.ready():
     # Wait for the component to load and send us current cookies.
     st.stop()
 
-cookies['a-cookie'] = 'dffsafdsafds'
-cookies.save()
 st.write("Current cookies:", cookies)
 
 with open('style.css', encoding='UTF-8') as f:
@@ -53,5 +51,5 @@ for x in st.session_state.response_list:
             del st.session_state[key]
         cookies['asdf'] = x
         cookies.save()
-        st.rerun()
-        st.switch_page('pages/check_essay.py')
+        st.write("Current cookies:", cookies)
+        #st.switch_page('pages/check_essay.py')
