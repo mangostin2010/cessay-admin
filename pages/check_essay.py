@@ -73,8 +73,5 @@ with st.popover("**:red[Delete This Essay]**"):
 if st.button('Go Back to Main Page'): 
     st.switch_page('main.py')
 
-for key in st.session_state:
-    del st.session_state[key]
-st.query_params.clear()
-st.session_state
-streamlit_js_eval(js_expressions="history.back();")
+for x in range(5):
+    streamlit_js_eval(js_expressions="history.back();")
