@@ -50,6 +50,6 @@ for x in st.session_state.response_list:
     if st.button(label=x.replace('.docx', ''), use_container_width=1):
         for key in st.session_state:
             del st.session_state[key]
-
-        st.query_params.target = x
+        cookies['target'] = x
+        cookies.save()
         st.switch_page('pages/check_essay.py')
