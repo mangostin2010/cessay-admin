@@ -62,14 +62,14 @@ def do_preview():
         # Write Content
         st.write(file_content.replace(date, '', 1).replace(name, '', 1).replace(',','',1).replace(topic, '', 1))
     
-    with st.popover("**:red[Delete This Essay]**"):
-        agree = st.checkbox(':red[I understand this essay cannot be restored after being deleted.]')
-        if agree == False: st.session_state.understand = True
-        elif agree == True: st.session_state.understand = False
-            
-        if st.button('**:red[Delete]**', disabled=st.session_state.understand):
-            db.delete(st.session_state.target)
-            streamlit_js_eval(js_expressions="parent.window.location.reload()")
+with st.popover("**:red[Delete This Essay]**"):
+    agree = st.checkbox(':red[I understand this essay cannot be restored after being deleted.]')
+    if agree == False: st.session_state.understand = True
+    elif agree == True: st.session_state.understand = False
+        
+    if st.button('**:red[Delete]**', disabled=st.session_state.understand):
+        db.delete(st.session_state.target)
+        streamlit_js_eval(js_expressions="parent.window.location.reload()")
 
 if st.button('Go Back to Main Page'): 
     st.switch_page('main.py')
