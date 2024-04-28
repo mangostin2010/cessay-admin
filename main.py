@@ -44,13 +44,12 @@ button {
 </style>
 """
 st.html(code)
-
+cookies
 for x in st.session_state.response_list:
     if st.button(label=x.replace('.docx', ''), use_container_width=1):
         for key in st.session_state:
             del st.session_state[key]
         cookies['asdf'] = x
-        if st.button('really?'):
-            cookies.save()
-            st.rerun()
-            #st.switch_page('pages/check_essay.py')
+        cookies.save()
+        st.rerun()
+        st.switch_page('pages/check_essay.py')
