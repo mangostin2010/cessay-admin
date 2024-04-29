@@ -48,3 +48,11 @@ button:hover {
 .st-emotion-cache-eczf16 {
     display: none;
 }
+
+button {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.st-emotion-cache-1h9usn1.eqpbllx4 {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
