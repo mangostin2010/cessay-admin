@@ -1,57 +1,31 @@
-from deta import Deta
 import streamlit as st
-import os
-from streamlit_cookies_manager import EncryptedCookieManager
-import time
+from dependencies import get_essay_list
+import random
 
 st.set_page_config(page_title='Check Student\'s Essay', page_icon='✏️')
 
-cookies = EncryptedCookieManager(
-    # This prefix will get added to all your cookie names.
-    # This way you can run your app on Streamlit Cloud without cookie name clashes with other apps.
-    prefix="justin",
-    password=os.environ.get("COOKIES_PASSWORD", "justin is handsome"),
-)
-if not cookies.ready():
-    # Wait for the component to load and send us current cookies.
-    st.stop()
-
-st.write("Current cookies:", cookies)
-
+# Open Style Sheet and apply
 with open('style.css', encoding='UTF-8') as f:
-    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    st.html(f"<style>{f.read()}</style>")
 
-st.query_params.clear()
+if 'initialized' not in st.session_state:
+    # Get essay list from dependencies.py
+    st.session_state.essay_list = get_essay_list()
+    st.session_state.initialized = True
 
-if 'db' not in st.session_state:
-    DETA_KEY = 'c0ki5D3avML_gSssDuj33rfuzLDrjwL1gc42oQkbgsHj'
-    deta = Deta(DETA_KEY)
-    db = deta.Drive("Write_Your_Essay")
-    st.session_state.db = db
-
-if 'response_list' not in st.session_state:
-    response = st.session_state.db.list()["names"]
-    response.reverse()
-    st.session_state.response_list = response
+essay_list = st.session_state.essay_list
 
 st.title('Check Student\'s Essay')
 st.divider()
 
-code = """
-<style>
-button {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-</style>
-"""
-st.html(code)
+for x in essay_list:
+    # Define a button for each essay
+    essay_button = st.button(x, use_container_width=True)
 
-for x in st.session_state.response_list:
-    if st.button(label=x.replace('.docx', ''), use_container_width=1):
-        for key in st.session_state:
-            del st.session_state[key]
-        cookies['target'] = x
-        cookies.save()
-        time.sleep(2)
-        st.write("Current cookies:", cookies)
-        st.switch_page('pages/check_essay.py')
+    if essay_button:
+        st.session_state["target"] = x
+        st.switch_page('pages/check.py')
+
+# Removing everything in st.session_state dictionary
+for x in st.session_state:
+    del st.session_state[x]
