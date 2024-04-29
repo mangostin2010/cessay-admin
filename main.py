@@ -20,7 +20,7 @@ st.divider()
 
 for x in essay_list:
     # Define a button for each essay
-    essay_button = st.button(x, use_container_width=True)
+    essay_button = st.button(x.replace('.docx', ''), use_container_width=True)
 
     if essay_button:
         st.session_state["target"] = x
