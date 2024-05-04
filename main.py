@@ -21,7 +21,7 @@ st.divider()
 a_style = """color: rgb(49, 51, 63);display: block ruby; text-align: center; text-decoration: none; font-size: 16px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"""
 
 for x in essay_list:
-    URL_STRING = f"check-cessay.streamlit.app/check?target={x}"
+    URL_STRING = f"https://check-cessay.streamlit.app/check?target={x}"
     #URL_STRING = f"http://127.0.0.1:8501/check?target={x}"
     x_placeholder = x.replace('.docx', '')
     
