@@ -18,18 +18,12 @@ essay_list = st.session_state.essay_list
 st.title('Check Student\'s Essay')
 st.divider()
 
-a_style = """color: rgb(49, 51, 63);display: block ruby; text-align: center; text-decoration: none; font-size: 16px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"""
-
 for x in essay_list:
-    URL_STRING = f"https://check-cessay.streamlit.app/check?target={x}"
-    #URL_STRING = f"http://127.0.0.1:8501/check?target={x}"
-    x_placeholder = x.replace('.docx', '')
-    
     # Define a button for each essay
-    st.markdown(
-        f'<a href="{URL_STRING}" style="{a_style}" target="_self">{x_placeholder}</a>',
-        unsafe_allow_html=True
-    )
+    essay_button = st.button(x.replace('.docx', ''), use_container_width=True)
+    if essay_button:
+        st.session_state["target"] = x
+        st.switch_page('pages/check.py')
 
 # Removing everything in st.session_state dictionary
 for x in st.session_state:
