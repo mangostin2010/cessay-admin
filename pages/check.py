@@ -8,9 +8,8 @@ with open('style.css', encoding='UTF-8') as f:
     st.html(f"<style>{f.read()}</style>")
 
 # Checking whether user has target variable. If not, 
-if 'target' not in st.query_params:
+if 'target' not in st.session_state:
     st.switch_page('main.py')
-st.session_state.target = st.query_params['target']
 
 def do_all():
     st.title('Check Student\'s Essay')
@@ -20,9 +19,7 @@ def do_all():
                     data=get_essay_from_name(st.session_state.target),
                     file_name=st.session_state.target,
                     mime='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
-
-
-
+    
     preview = st.expander('Preview this essay')
 
     delete_popover = st.popover("**:red[Delete This Essay]**")
@@ -40,19 +37,18 @@ def do_all():
             with st.spinner('Wait for it...'):
                 st.session_state.preview_content = get_text_from_file(get_essay_from_name(st.session_state.target))
 
-    with preview:
-        file_content = st.session_state.preview_content
-        file_name = st.session_state.target.replace('.docx','')
-        divided_file_name = file_name.split('_')
+            file_content = st.session_state.preview_content
+            file_name = st.session_state.target.replace('.docx','')
+            divided_file_name = file_name.split('_')
 
-        date = divided_file_name[0]
-        name = divided_file_name[1]
-        topic = divided_file_name[2]
+            date = divided_file_name[0]
+            name = divided_file_name[1]
+            topic = divided_file_name[2]
 
-        f'''### **:gray[{topic}]**'''
-        
-        # Write Content
-        st.write(file_content.replace(date, '', 1).replace(name, '', 1).replace(',','',1).replace(topic, '', 1))
-        st.session_state.preview_loaded = True
+            f'''### **:gray[{topic}]**'''
+
+            # Write Content
+            st.write(file_content.replace(date, '', 1).replace(name, '', 1).replace(',','',1).replace(topic, '', 1))
+            st.session_state.preview_loaded = True
 
 do_all()
