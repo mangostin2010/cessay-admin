@@ -8,8 +8,9 @@ with open('style.css', encoding='UTF-8') as f:
     st.html(f"<style>{f.read()}</style>")
 
 # Checking whether user has target variable. If not, 
-if 'target' not in st.session_state:
+if 'target' not in st.query_params:
     st.switch_page('main.py')
+st.session_state.target = st.query_params['target']
 
 def do_all():
     st.title('Check Student\'s Essay')
